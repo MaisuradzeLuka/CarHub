@@ -14,7 +14,7 @@ const Hero = () => {
           process.
         </p>
 
-        <Button title="Explore Cars" variant="bg-blue-600" />
+        <Button title="Explore Cars" variant="bg-blue-600 text-white" />
       </div>
 
       <div className="xl:flex-[1.5] flex justify-end items-end w-full xl:h-screen">

@@ -36,7 +36,7 @@ const Footer = () => {
           ))}
         </div>
 
-        <div className="absolute inset-x-0 -bottom-4 h-[2px] bg-gray-300" />
+        <div className="absolute inset-x-0 -bottom-4 h-[1px] bg-gray-300" />
       </div>
 
       <div className="flex flex-col gap-7 xs:flex-row xs:gap-0 justify-between items-center px-16 pb-9 text-center">

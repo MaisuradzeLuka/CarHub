@@ -5,9 +5,7 @@ interface IButton {
 
 const Button = ({ title, variant }: IButton) => {
   return (
-    <button className={`text-white py-3 px-5 rounded-full ${variant}`}>
-      {title}
-    </button>
+    <button className={`py-3 px-5 rounded-full ${variant}`}>{title}</button>
   );
 };
 
