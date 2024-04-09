@@ -3,7 +3,7 @@
 import { ICar } from "@/types";
 import Image from "next/image";
 import Button from "./Button";
-import { calculateCarRent } from "@/utils";
+import { calculateCarRent, generateCarImageUrl } from "@/utils";
 import { useState } from "react";
 import CarModal from "./CarModal";
 
@@ -26,7 +26,7 @@ const CarCard = ({ car }: { car: ICar }) => {
 
       <div className="relative w-full h-60 my-6">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car, '01')}
           alt="car model"
           fill
           priority

@@ -21,6 +21,7 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         "hero-bg": "url('/hero-bg.png')",
+        "pattern-bg": "url('/pattern.png')",
       },
       screens: {
         xs: "468px",

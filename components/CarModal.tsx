@@ -1,6 +1,7 @@
 "use client";
 
 import { ICar } from "@/types";
+import { generateCarImageUrl } from "@/utils";
 import { Dialog, Transition } from "@headlessui/react";
 import Image from "next/image";
 import { Fragment } from "react";
@@ -50,17 +51,48 @@ const CarModal = ({ isOpen, setIsOpen, car }: ICarModal) => {
             leaveTo="opacity-0 scale-95"
           >
             <Dialog.Panel className=" w-full xs:w-[500px] max-h-[600px] bg-white z-30 overflow-y-auto mx-3 px-6 py-8 rounded-2xl">
-              <div className="relative h-40">
-                <Image
-                  src="/hero.png"
-                  alt="modal car model"
-                  fill
-                  priority
-                  className="object-contain"
-                />
+              <div className=" ">
+                <div className="relative h-40 bg-pattern-bg rounded-lg bg-cover">
+                  <Image
+                    src={generateCarImageUrl(car, "01")}
+                    alt="modal car image"
+                    fill
+                    priority
+                    className="object-contain"
+                  />
+                </div>
+
+                <div className="flex justify-between gap-4 mt-5 w-full h-auto">
+                  <div className="relative bg-primary-blue rounded-lg w-[33%] h-[100px]">
+                    <Image
+                      src={generateCarImageUrl(car, "29")}
+                      alt="modal car image top"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+
+                  <div className="relative bg-primary-blue rounded-lg w-[33%] h-[100px]">
+                    <Image
+                      src={generateCarImageUrl(car, "33")}
+                      alt="modal car image front"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+
+                  <div className="relative bg-primary-blue rounded-lg w-[33%] h-[100px]">
+                    <Image
+                      src={generateCarImageUrl(car, "13")}
+                      alt="modal car image rear"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                </div>
               </div>
 
-              <div className="flex flex-col items-start gap-5 mt-14">
+              <div className="flex flex-col items-start gap-5 mt-10">
                 <Dialog.Title className="capitalize text-2xl font-medium">
                   {car?.make} {car?.model}
                 </Dialog.Title>

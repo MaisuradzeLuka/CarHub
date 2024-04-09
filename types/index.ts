@@ -12,3 +12,11 @@ export interface ICar {
   transmission: string;
   year: number;
 }
+
+export interface ISearchParams {
+  brand?: string;
+  model?: string;
+  year?: number;
+  fuel_type?: string;
+  limit?: number;
+}

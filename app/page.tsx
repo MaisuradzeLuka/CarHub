@@ -1,11 +1,12 @@
 import CarCard from "@/components/CarCard";
-import CustomInput from "@/components/CustomInput";
+import CustomInput from "@/components/SearchBrand";
 import Hero from "@/components/Hero";
-import { ICar } from "@/types";
+import SearchBar from "@/components/SearchBar";
+import { ICar, ISearchParams } from "@/types";
 import { fetchCars } from "@/utils";
 
-const Home = async () => {
-  const cars: ICar[] | null = await fetchCars();
+const Home = async ({ searchParams }: { searchParams: ISearchParams }) => {
+  const cars: ICar[] | null = await fetchCars({ searchParams });
 
   return (
     <main className="flex flex-col items-center overflow-x-hidden w-full">
@@ -20,7 +21,7 @@ const Home = async () => {
         </div>
 
         <div className="flex flex-col xl:flex-row xl:justify-between mt-12 mb-20 xl:mt-8">
-          <CustomInput />
+          <SearchBar />
           <div>
             <button>Filter</button>
             <button>Filter</button>
@@ -36,7 +37,9 @@ const Home = async () => {
         </section>
       ) : (
         <div>
-          <h2 className="text-4xl font-semibold">Oops no cars to display</h2>
+          <h2 className="text-4xl font-semibold text-center w-full">
+            Oops no cars to display
+          </h2>
         </div>
       )}
 
