@@ -1,19 +1,25 @@
+"use client";
+
 import { ICar } from "@/types";
 import Image from "next/image";
 import Button from "./Button";
 import { calculateCarRent } from "@/utils";
+import { useState } from "react";
+import CarModal from "./CarModal";
 
 const CarCard = ({ car }: { car: ICar }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="w-full bg-primary-blue hover:bg-white hover:shadow-xl rounded-[5%] p-6 text-gray-800">
       <h2 className="text-2xl capitalize font-semibold mb-4">
-        {car.make} {car.model}
+        {car?.make} {car?.model}
       </h2>
 
       <div className="flex h-12">
         <span className="self-start text-xl">$</span>
         <p className="text-4xl font-medium self-center">
-          {calculateCarRent(car.city_mpg, car.year)}
+          {calculateCarRent(car?.city_mpg, car?.year)}
         </p>
         <span className="self-end">/day</span>
       </div>
@@ -38,19 +44,21 @@ const CarCard = ({ car }: { car: ICar }) => {
               height={22}
             />
             <span className=" text-gray-500 text-md">
-              {car.transmission === "a" ? "Automatic" : "Manual"}
+              {car?.transmission === "a" ? "Automatic" : "Manual"}
             </span>
           </div>
 
           <div className="flex flex-col gap-2 items-center">
             <Image src="/tire.svg" alt="drive" width={22} height={22} />
-            <span className="uppercase text-gray-500 text-md">{car.drive}</span>
+            <span className="uppercase text-gray-500 text-md">
+              {car?.drive}
+            </span>
           </div>
 
           <div className="flex flex-col gap-2 items-center">
             <Image src="/gas.svg" alt="gas tank" width={22} height={22} />
             <span className="uppercase text-gray-500 text-md">
-              {car.combination_mpg} mpg
+              {car?.combination_mpg} mpg
             </span>
           </div>
         </div>
@@ -59,9 +67,12 @@ const CarCard = ({ car }: { car: ICar }) => {
           <Button
             title="Learn more"
             variant="bg-blue-600 w-full py-4 text-white text-md"
+            onClick={() => setIsOpen(true)}
           />
         </div>
       </div>
+
+      <CarModal isOpen={isOpen} setIsOpen={() => setIsOpen(false)} car={car} />
     </div>
   );
 };

@@ -19,7 +19,7 @@ const Home = async () => {
           <p className="text-gray-600 mt-3">Explore out cars you might like</p>
         </div>
 
-        <div className="flex flex-col xl:flex-row xl:justify-between mt-12 mb-20 xl:mt-0">
+        <div className="flex flex-col xl:flex-row xl:justify-between mt-12 mb-20 xl:mt-8">
           <CustomInput />
           <div>
             <button>Filter</button>
@@ -29,7 +29,7 @@ const Home = async () => {
       </section>
 
       {cars?.length ? (
-        <section className="w-full px-8 sm:px-16 2xl:w-[1440px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-10">
+        <section className="w-full px-8 sm:px-16 2xl:w-[1440px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
           {cars?.map((car, i) => (
             <CarCard key={i} car={car} />
           ))}

@@ -1,7 +1,7 @@
 export const fetchCars = async () => {
   try {
     const response = fetch(
-      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla",
+      "https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?model=corolla&limit=10",
       {
         headers: {
           "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
