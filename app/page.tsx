@@ -2,6 +2,7 @@ import CarCard from "@/components/CarCard";
 import FilterCategories from "@/components/FilterCategories";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import ShowMore from "@/components/ShowMore";
 import { fuels, years } from "@/constants";
 import { ICar, ISearchParams } from "@/types";
 import { fetchCars } from "@/utils";
@@ -24,7 +25,7 @@ const Home = async ({ searchParams }: { searchParams: ISearchParams }) => {
         <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-12 mb-20 xl:mt-8">
           <SearchBar />
 
-          <div className="flex gap-5 mt-4 xl:mt-0">
+          <div className="flex gap-5 mt-4 xl:mt-0 max-w-[380px] xl:w-[380px]">
             <FilterCategories title="fuel_type" options={fuels} />
             <FilterCategories title="year" options={years} />
           </div>
@@ -32,10 +33,17 @@ const Home = async ({ searchParams }: { searchParams: ISearchParams }) => {
       </section>
 
       {cars?.length ? (
-        <section className="w-full px-8 sm:px-16 2xl:w-[1440px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
-          {cars?.map((car, i) => (
-            <CarCard key={i} car={car} />
-          ))}
+        <section>
+          <div className="w-full px-8 sm:px-16 2xl:w-[1440px] grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+            {cars?.map((car, i) => (
+              <CarCard key={i} car={car} />
+            ))}
+          </div>
+
+          <ShowMore
+            pageNumber={(searchParams.limit || 10) / 10}
+            isNextPage={(searchParams.limit || 10) > cars.length}
+          />
         </section>
       ) : (
         <div>

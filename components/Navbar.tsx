@@ -5,7 +5,7 @@ import Button from "./Button";
 const Navbar = () => {
   return (
     <header className="bg-transparent absolute w-full">
-      <nav className="flex justify-between items-center px-16 py-3 max-w-[1440px]">
+      <nav className="flex justify-between items-center px-8 sm:px-16 py-3 max-w-[1440px] mx-auto">
         <Link href="/">
           <Image src="/logo.svg" alt="car hub logo" width={118} height={28} />
         </Link>

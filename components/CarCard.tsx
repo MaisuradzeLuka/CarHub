@@ -11,7 +11,7 @@ const CarCard = ({ car }: { car: ICar }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="w-full bg-primary-blue hover:bg-white hover:shadow-xl rounded-[5%] p-6 text-gray-800">
+    <div className="flex flex-col justify-between w-full bg-primary-blue hover:bg-white hover:shadow-xl rounded-[5%] p-6 text-gray-800">
       <h2 className="text-2xl capitalize font-semibold mb-4">
         {car?.make} {car?.model}
       </h2>
@@ -26,7 +26,7 @@ const CarCard = ({ car }: { car: ICar }) => {
 
       <div className="relative w-full h-60 my-6">
         <Image
-          src={generateCarImageUrl(car, '01')}
+          src={generateCarImageUrl(car, "01")}
           alt="car model"
           fill
           priority

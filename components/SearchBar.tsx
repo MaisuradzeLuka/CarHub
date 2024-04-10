@@ -15,9 +15,9 @@ const SearchBar = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    console.log(model);
-
     const searchParams = new URLSearchParams(window.location.search);
+
+    searchParams.delete("limit");
 
     if (model) {
       searchParams.set("model", model);
@@ -26,9 +26,9 @@ const SearchBar = () => {
     }
 
     if (brand) {
-      searchParams.set("brand", brand);
+      searchParams.set("make", brand);
     } else {
-      searchParams.delete("brand");
+      searchParams.delete("make");
     }
 
     const newPathname = `${
@@ -40,7 +40,7 @@ const SearchBar = () => {
 
   return (
     <form className="xl:w-[900px]" onSubmit={handleSubmit}>
-      <div className="relative flex flex-col md:flex-row item-center gap-4 md:gap-0 max-w-[750px]  py-2 pr-6 rounded-full">
+      <div className="relative flex flex-col md:flex-row item-center gap-4 md:gap-0 max-w-[750px]  py-2 rounded-full">
         <SearchBrand brand={brand} setBrand={setBrand} />
 
         <div className="relative flex-1 flex items-center gap-4 md:w-1/2 max-h-11">

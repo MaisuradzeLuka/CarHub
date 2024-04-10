@@ -14,7 +14,7 @@ export interface ICar {
 }
 
 export interface ISearchParams {
-  brand?: string;
+  make?: string;
   model?: string;
   year?: number;
   fuel_type?: string;

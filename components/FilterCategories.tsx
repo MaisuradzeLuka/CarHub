@@ -38,8 +38,8 @@ const FilterCategories = ({ title, options }: IFilterCategories) => {
       }}
       as={Fragment}
     >
-      <div className="relative">
-        <Listbox.Button className="flex justify-between items-center border border-gray-400 rounded-xl shadow-lg w-40 max-h-[44px] py-3 px-4 capitalize">
+      <div className="relative w-full">
+        <Listbox.Button className="flex justify-between items-center border border-gray-400 rounded-xl shadow-lg w-full max-h-[44px] py-3 px-4 capitalize">
           {selectedOption.value}
 
           <Image

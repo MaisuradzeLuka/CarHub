@@ -2,11 +2,11 @@ import { ICar, ISearchParams } from "@/types";
 
 export const fetchCars = async (searchParams: ISearchParams) => {
   //prettier-ignore
-  const {brand = 'mercedes', model = '', year = 2022, limit = 10, fuel_type = ''} = searchParams;
+  const {make = '', model = '', year = 2022, limit = 10, fuel_type = ''} = searchParams;
 
   try {
     const response = fetch(
-      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${brand}&model=${model}&fuel_type=${fuel_type}&year=${year}&limit=${limit}`,
+      `https://cars-by-api-ninjas.p.rapidapi.com/v1/cars?make=${make}&model=${model}&fuel_type=${fuel_type}&year=${year}&limit=${limit}`,
       {
         headers: {
           "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_KEY || "",
@@ -20,6 +20,8 @@ export const fetchCars = async (searchParams: ISearchParams) => {
     }
 
     const data = (await response).json();
+
+    console.log(searchParams);
 
     return data;
   } catch (error) {
