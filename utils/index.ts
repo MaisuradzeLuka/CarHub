@@ -1,10 +1,6 @@
 import { ICar, ISearchParams } from "@/types";
 
-export const fetchCars = async ({
-  searchParams,
-}: {
-  searchParams: ISearchParams;
-}) => {
+export const fetchCars = async (searchParams: ISearchParams) => {
   //prettier-ignore
   const {brand = 'mercedes', model = '', year = 2022, limit = 10, fuel_type = ''} = searchParams;
 

@@ -80,3 +80,22 @@ export const footerList = [
     ],
   },
 ];
+
+export const fuels = [
+  { id: "fuel", value: "fuel" },
+  { id: "gas", value: "gas" },
+  { id: "electric", value: "electric" },
+];
+
+export const years = [
+  { id: "year", value: "year" },
+  { id: "2015", value: "2015" },
+  { id: "2016", value: "2016" },
+  { id: "2017", value: "2017" },
+  { id: "2018", value: "2018" },
+  { id: "2019", value: "2019" },
+  { id: "2020", value: "2020" },
+  { id: "2021", value: "2021" },
+  { id: "2022", value: "2022" },
+  { id: "2023", value: "2023" },
+];

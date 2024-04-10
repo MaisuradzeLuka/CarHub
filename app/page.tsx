@@ -1,12 +1,13 @@
 import CarCard from "@/components/CarCard";
-import CustomInput from "@/components/SearchBrand";
+import FilterCategories from "@/components/FilterCategories";
 import Hero from "@/components/Hero";
 import SearchBar from "@/components/SearchBar";
+import { fuels, years } from "@/constants";
 import { ICar, ISearchParams } from "@/types";
 import { fetchCars } from "@/utils";
 
 const Home = async ({ searchParams }: { searchParams: ISearchParams }) => {
-  const cars: ICar[] | null = await fetchCars({ searchParams });
+  const cars: ICar[] | null = await fetchCars(searchParams);
 
   return (
     <main className="flex flex-col items-center overflow-x-hidden w-full">
@@ -20,11 +21,12 @@ const Home = async ({ searchParams }: { searchParams: ISearchParams }) => {
           <p className="text-gray-600 mt-3">Explore out cars you might like</p>
         </div>
 
-        <div className="flex flex-col xl:flex-row xl:justify-between mt-12 mb-20 xl:mt-8">
+        <div className="flex flex-col xl:flex-row xl:justify-between xl:items-center mt-12 mb-20 xl:mt-8">
           <SearchBar />
-          <div>
-            <button>Filter</button>
-            <button>Filter</button>
+
+          <div className="flex gap-5 mt-4 xl:mt-0">
+            <FilterCategories title="fuel_type" options={fuels} />
+            <FilterCategories title="year" options={years} />
           </div>
         </div>
       </section>
